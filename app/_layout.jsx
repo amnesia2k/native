@@ -4,6 +4,9 @@ import "react-native-reanimated";
 import { useFonts } from "expo-font";
 import "../global.css";
 import { useEffect } from "react";
+import { GlobalProvider } from "@/context/GlobalProvider";
+
+SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [fontsLoaded, error] = useFonts({
@@ -31,7 +34,7 @@ export default function RootLayout() {
   }
 
   return (
-    <>
+    <GlobalProvider>
       <Stack>
         <Stack.Screen name="index" options={{ headerShown: false }} />
         <Stack.Screen name="(auth)" options={{ headerShown: false }} />
@@ -39,6 +42,6 @@ export default function RootLayout() {
         {/* <Stack.Screen name="/search/[query]" options={{ headerShown: false }} /> */}
       </Stack>
       <StatusBar style="auto" />
-    </>
+    </GlobalProvider>
   );
 }
