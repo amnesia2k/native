@@ -5,6 +5,7 @@ import CustomButton from "./CustomButton";
 import { router } from "expo-router";
 
 const EmptyState = ({ title, subtitle }) => {
+  const url = "https://api.github.com/";
   return (
     <View className="justify-center items-center px-4">
       <Image
